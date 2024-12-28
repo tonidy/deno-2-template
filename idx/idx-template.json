@@ -4,8 +4,9 @@
   "params": [
     {
       "id": "version",
-      "name": "Deno 2 version",
-      "type": "string",
+      "name": "Deno version",
+      "description": "You can change the version of deno",
+      "type": "text",
       "default": "v2.1.4",
       "required": true
     }
