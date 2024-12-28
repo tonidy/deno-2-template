@@ -2,41 +2,13 @@
 # see: https://developers.google.com/idx/guides/customize-idx-env
 { pkgs, ... }:
 {
-  imports = [ ./mise.nix ];
   # Which nixpkgs channel to use
   channel = "unstable"; # or "stable-24.11"
   # Use https://search.nixos.org/packages to find packages
   packages = [
     pkgs.fastfetch
-    # pkgs.mise
+    pkgs.mise
   ];
-  config = {
-    # home.stateVersion = "23.11";
-    # Enable home-manager
-    programs.home-manager.enable = true;
-
-    # Add mise configuration
-    modules.shell.mise = {
-      enable = true;
-      package = pkgs.mise;
-      globalConfig = {
-        experimental = true;
-        python_venv_auto_create = true;
-      };
-      settings = {
-        disable_hints = [ "*" ];
-      };
-    };
-
-    xdg.enable = true;
-
-    home.packages = [
-      pkgs.home-manager
-      pkgs.mise
-    ];
-  };
-
-  home.packages = [ pkgs.mise ];
   # Sets environment variables in the workspace
   env = {
     PORT = "9002";
@@ -51,8 +23,8 @@
       onStart = { };
       onCreate = {
         install-deno = ''
-          # mise use --global bun@1.1.42
-          # mise use --global deno@2.1.4
+          mise use --global bun@1.1.42
+          mise use --global deno@2.1.4
           # echo 'eval "$(mise activate bash)"' >> ~/.bashrc
         '';
         # Open editors for the following files by default, if they exist:

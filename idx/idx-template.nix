@@ -15,7 +15,6 @@
       echo ${version} > "$out/version.txt"
 
       cp -rf ${./dev.nix} "$out/.idx/dev.nix"
-      cp -rf ${./mise.nix} "$out/.idx/mise.nix"
       shopt -s dotglob; cp -r ${../src}/* "$out"
       chmod -R +w "$out"
   '';
