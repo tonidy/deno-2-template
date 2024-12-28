@@ -10,7 +10,7 @@ let
 in
 {
   options.modules.shell.mise = {
-    enable = lib.mkEnableOption "mise";
+    enable = lib.mkEnableOption "Enable mise for shell environment management.";
     package = lib.mkPackageOption pkgs "mise" { };
     globalConfig = lib.mkOption {
       inherit (tomlFormat) type;
@@ -50,18 +50,16 @@ in
       };
     };
 
-    programs = {
-      bash.initExtra = ''
-        eval "$(${lib.getExe cfg.package} activate bash)"
-      '';
+    programs.bash.initExtra = ''
+      eval "$(${lib.getExe cfg.package} activate bash)"
+    '';
 
-      fish.interactiveShellInit = lib.mkAfter ''
-        ${lib.getExe cfg.package} activate fish | source
-      '';
+    programs.fish.interactiveShellInit = lib.mkAfter ''
+      ${lib.getExe cfg.package} activate fish | source
+    '';
 
-      fish.shellInit = lib.mkAfter ''
-        ${lib.getExe cfg.package} activate fish --shims | source
-      '';
-    };
+    programs.fish.shellInit = lib.mkAfter ''
+      ${lib.getExe cfg.package} activate fish --shims | source
+    '';
   };
 }

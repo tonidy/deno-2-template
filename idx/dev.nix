@@ -1,6 +1,7 @@
 # To learn more about how to use Nix to configure your environment
 # see: https://developers.google.com/idx/guides/customize-idx-env
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [ ./mise.nix ];
   # Which nixpkgs channel to use
   channel = "unstable"; # or "stable-24.11"
@@ -9,16 +10,30 @@
     pkgs.fastfetch
     # pkgs.mise
   ];
-  modules.shell.mise = {
-    enable = true;
-    package = pkgs.mise;
-    globalConfig = {
-      experimental = true;
-      python_venv_auto_create = true;
+  config = {
+    # home.stateVersion = "23.11";
+    # Enable home-manager
+    programs.home-manager.enable = true;
+
+    # Add mise configuration
+    modules.shell.mise = {
+      enable = true;
+      package = pkgs.mise;
+      globalConfig = {
+        experimental = true;
+        python_venv_auto_create = true;
+      };
+      settings = {
+        disable_hints = [ "*" ];
+      };
     };
-    settings = {
-      disable_hints = [ "*" ];
-    };
+
+    xdg.enable = true;
+
+    home.packages = [
+      pkgs.home-manager
+      pkgs.mise
+    ];
   };
 
   home.packages = [ pkgs.mise ];
@@ -49,7 +64,13 @@
       enable = false;
       previews = {
         web = {
-          command = [ "deno" "run" "--watch" "--allow-all" "main.ts" ];
+          command = [
+            "deno"
+            "run"
+            "--watch"
+            "--allow-all"
+            "main.ts"
+          ];
           manager = "web";
         };
       };
