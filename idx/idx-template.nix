@@ -3,7 +3,7 @@
 , ...
 }: {
 
-  packages = [ pkgs.curl ];
+  packages = [ pkgs.curl pkgs.unzip ];
 
   bootstrap = ''
         # Install Deno
