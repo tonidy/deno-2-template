@@ -9,13 +9,13 @@
       "name": "Deno version",
       "description": "You can change the version of deno",
       "type": "text",
-      "required": true
+      "required": false
     },
     {
       "id": "sample",
       "description": "Build a new web app using Deno",
       "type": "enum",
-      "required": true,
+      "required": false,
       "options": {
         "nextjs-blank": "Next.js Blank",
         "nextjs-email-app": "Next.js Email App"
