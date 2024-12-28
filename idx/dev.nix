@@ -17,8 +17,9 @@
 
     	  mkdir "$out"
         mkdir -p "$out"/.idx
-        
-        cp ${./dev.nix} "$out"/.idx/dev.nix
+
+        cp -rf ${./dev.nix} "$out/.idx/dev.nix"
+        shopt -s dotglob; cp -r ${../src}/* "$out"
         chmod -R +w "$out"
   '';
   # Sets environment variables in the workspace
