@@ -18,7 +18,7 @@
       echo ${version} > version.txt
 
       cp -f ${./dev.nix} ".idx/dev.nix"
-      # cp -f ${./settings.json} ".vscode/settings.json"
+      cp -f ${./settings.json} ".vscode/settings.json"
 
       cd ..
       shopt -s dotglob; cp -r ${../src}/* "$out"
