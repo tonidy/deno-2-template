@@ -35,11 +35,11 @@
     };
     # Enable previews and customize configuration
     previews = {
-      enable = false;
+      enable = true;
       previews = {
         web = {
           command = [
-            "deno"
+            "/home/user/.local/share/mise/installs/deno/2.1.4/bin/deno"
             "run"
             "--watch"
             "--allow-all"
