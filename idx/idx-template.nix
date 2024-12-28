@@ -11,7 +11,7 @@
 
     	mkdir "$out"
         mkdir -p "$out"/.idx
-        # mkdir -p ~/.deno
+        mkdir -p ~/.deno
 
         echo ${version} > "$out/version.txt"
 
