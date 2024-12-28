@@ -20,6 +20,9 @@
     workspace = {
       onStart = { };
       onCreate = {
+        install-deno = ''
+          curl -fsSL https://deno.land/install.sh | sh -s v2.1.4 -- --yes
+        '';
         # Open editors for the following files by default, if they exist:
         default.openFiles = [ "main.ts" ];
       };
