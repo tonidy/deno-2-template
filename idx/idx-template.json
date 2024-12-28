@@ -1,14 +1,25 @@
 {
   "name": "Deno 2 template",
   "description": "Start deno 2 project",
+  "categories": ["Web app"],
+  "publisher": "test",
   "params": [
     {
       "id": "version",
       "name": "Deno version",
       "description": "You can change the version of deno",
       "type": "text",
-      "default": "v2.1.4",
       "required": true
+    },
+    {
+      "id": "sample",
+      "description": "Build a new web app using Deno",
+      "type": "enum",
+      "required": true,
+      "options": {
+        "nextjs-blank": "Next.js Blank",
+        "nextjs-email-app": "Next.js Email App"
+      }
     }
   ]
 }
