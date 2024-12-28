@@ -7,7 +7,7 @@
 
   bootstrap = ''
         # Install Deno
-        curl -fsSL https://deno.land/install.sh | sh --yes -s ${version}
+        curl -fsSL https://deno.land/install.sh | sh -s ${version} -- --yes
 
     	mkdir "$out"
         mkdir -p "$out"/.idx
