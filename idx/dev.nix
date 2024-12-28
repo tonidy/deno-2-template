@@ -18,6 +18,7 @@
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
       "denoland.vscode-deno"
+      "tamasfe.even-better-toml"
       "hverlin.mise-vscode"
     ];
     workspace = {
