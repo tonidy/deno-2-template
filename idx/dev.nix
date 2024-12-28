@@ -8,6 +8,7 @@
   packages = [
     pkgs.fastfetch
     pkgs.mise
+    pkgs.deno
   ];
   # Sets environment variables in the workspace
   env = {
@@ -18,14 +19,12 @@
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
       "denoland.vscode-deno"
-      "tamasfe.even-better-toml"
-      "hverlin.mise-vscode"
     ];
     workspace = {
       onStart = { };
       onCreate = {
         install-deno = ''
-          mise use --global bun@1.1.42
+          # mise use --global bun@1.1.42
           mise use --global deno@2.1.4
           echo 'eval "$(mise activate bash)"' >> ~/.bashrc
         '';
