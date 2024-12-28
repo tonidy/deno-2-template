@@ -15,6 +15,7 @@
       "id": "sample",
       "description": "Build a new web app using Deno",
       "type": "enum",
+      "default": "nextjs-blank",
       "required": false,
       "options": {
         "nextjs-blank": "Next.js Blank",
