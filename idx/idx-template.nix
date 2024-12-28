@@ -1,14 +1,15 @@
-{ version ? "v2.1.4"
+{ pkgs
+, version ? "v2.1.4"
 , ...
 }: {
 
-  packages = [ ];
+  packages = [ pkgs.curl ];
 
   bootstrap = ''
         # Install Deno
-        curl -fsSL https://deno.land/install.sh | sh -s $version
+        curl -fsSL https://deno.land/install.sh | sh -s ${version}
 
-    	  mkdir "$out"
+    	mkdir "$out"
         mkdir -p "$out"/.idx
 
         cp -rf ${./dev.nix} "$out/.idx/dev.nix"
