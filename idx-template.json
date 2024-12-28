@@ -1,0 +1,13 @@
+{
+  "name": "Deno 2 template",
+  "description": "Start deno 2 project",
+  "params": [
+    {
+      "id": "version",
+      "name": "Deno 2 version",
+      "type": "string",
+      "default": "v2.1.4",
+      "required": true
+    }
+  ]
+}
