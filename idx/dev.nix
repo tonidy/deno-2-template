@@ -25,7 +25,7 @@
         install-deno = ''
           mise use --global bun@1.1.42
           mise use --global deno@2.1.4
-          # echo 'eval "$(mise activate bash)"' >> ~/.bashrc
+          echo 'eval "$(mise activate bash)"' >> ~/.bashrc
         '';
         # Open editors for the following files by default, if they exist:
         default.openFiles = [ "main.ts" ];
