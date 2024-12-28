@@ -10,11 +10,17 @@
       # curl -fsSL https://deno.land/install.sh | sh -s ${version} -- --yes
 
       mkdir "$out"
-      mkdir -p "$out"/.idx
+      cd "$out"
 
-      echo ${version} > "$out/version.txt"
+      mkdir -p .idx/
+      mkdir -p .vscode/
 
-      cp -rf ${./dev.nix} "$out/.idx/dev.nix"
+      echo ${version} > version.txt
+
+      cp -f ${./dev.nix} ".idx/dev.nix"
+      # cp -f ${./settings.json} ".vscode/settings.json"
+
+      cd ..
       shopt -s dotglob; cp -r ${../src}/* "$out"
       chmod -R +w "$out"
   '';
