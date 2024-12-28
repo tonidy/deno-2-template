@@ -1,9 +1,6 @@
 # To learn more about how to use Nix to configure your environment
 # see: https://developers.google.com/idx/guides/customize-idx-env
-{ pkgs
-, version ? "v2.1.4"
-, ...
-}:
+{ pkgs, ...}:
 {
   # Which nixpkgs channel to use
   channel = "unstable"; # or "stable-24.11"
@@ -11,17 +8,6 @@
   packages = [
     pkgs.fastfetch
   ];
-  bootstrap = ''
-        # Install Deno
-        curl -fsSL https://deno.land/install.sh | sh -s $version
-
-    	  mkdir "$out"
-        mkdir -p "$out"/.idx
-
-        cp -rf ${./dev.nix} "$out/.idx/dev.nix"
-        shopt -s dotglob; cp -r ${../src}/* "$out"
-        chmod -R +w "$out"
-  '';
   # Sets environment variables in the workspace
   env = {
     PORT = "9002";
